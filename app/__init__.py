@@ -10,5 +10,5 @@ def create_app(config_name):
 
     from app.controle_usuario.user import User
     api.add_resource(User, "/user")
-
+    
     return app

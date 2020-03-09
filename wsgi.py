@@ -1,5 +1,6 @@
-from app import create_app
+from app import create_app as application
 
-app = create_app("production")
+app = application("production")
 
-app.run(port=3030, host="0.0.0.0")
+if __name__ == "__main__":
+    app.run(port=3030, host="0.0.0.0")
