@@ -8,16 +8,16 @@ RUN apk add --virtual .build-dependencies \
 
 RUN apk add --no-cache pcre
 
-WORKDIR /source/app
-COPY /app source/app
-COPY ./requirements.txt /source
-COPY ./wsgi.ini /source
-COPY ./wsgi.py /source
+WORKDIR /
+COPY /app /app
+COPY ./requirements.txt /
+COPY ./wsgi.ini /
+COPY ./wsgi.py /
 
-RUN pip install -r /source/requirements.txt
+RUN pip install -r /requirements.txt
 
 RUN apk del .build-dependencies && rm -rf /var/cache/apk/*
 
 EXPOSE 3030
 
-CMD ["uwsgi", "--ini", "/source/wsgi.ini"]
+CMD ["uwsgi", "--ini", "/wsgi.ini"]
